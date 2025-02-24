@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'pages/exercice1.dart';
 import 'pages/exercice2.dart';
+import 'pages/exercice4.dart';
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -24,6 +26,9 @@ class _MyHomePageState extends State<MyHomePage> {
       case 1 : 
         page = Exercice2Page();
         break;
+      case 2 : 
+        page = Exercice4Page();
+        break;
 
       default:
         page = Exercice1Page();
@@ -38,6 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
         items: const[
           BottomNavigationBarItem(icon: Icon(Icons.sos), label: 'Exercice 1'),
           BottomNavigationBarItem(icon: Icon(Icons.sos), label: 'Exercice 2'),
+          BottomNavigationBarItem(icon: Icon(Icons.sos), label: 'Exercice 4'),
 
       ],
       currentIndex: selectedIndex,
