@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'exercice1.dart';
-import 'exercice2.dart';
+import 'package:provider/provider.dart';
+import '../page_state.dart'; // Importez la classe PageState
 
 class MenuPage extends StatelessWidget {
-  const MenuPage({Key? key}) : super(key: key);
+  const MenuPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final pageState = Provider.of<PageState>(context, listen: false); // Accédez à l'état
+
     return LayoutBuilder(
       builder: (context, constraints) {
         return ListView(
@@ -14,22 +16,40 @@ class MenuPage extends StatelessWidget {
           children: <Widget>[
             Card(
               child: ListTile(
-                leading: Icon(Icons.arrow_left_sharp),
-                title: Text("Exercice 1"),
+                trailing: const Icon(Icons.arrow_right_sharp),
+                title: const Text("Exercice 1"),
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Exercice1Page()));
+                  pageState.setIndex(1); // Met à jour l'index pour afficher Exercice1Page
                 },
               ),
             ),
             Card(
               child: ListTile(
-                leading: Icon(Icons.arrow_left_sharp),
-                title: Text("Exercice 2"),
+                trailing: const Icon(Icons.arrow_right_sharp),
+                title: const Text("Exercice 2"),
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Exercice2Page()));
+                  pageState.setIndex(2); // Met à jour l'index pour afficher Exercice2Page
                 },
               ),
-            )
+            ),
+            Card(
+              child: ListTile(
+                trailing: const Icon(Icons.arrow_right_sharp),
+                title: const Text("Exercice 4"),
+                onTap: () {
+                  pageState.setIndex(3); // Met à jour l'index pour afficher Exercice4Page
+                },
+              ),
+            ),
+            Card(
+              child: ListTile(
+                trailing: const Icon(Icons.arrow_right_sharp),
+                title: const Text("Exercice 5"),
+                onTap: () {
+                  pageState.setIndex(4); // Met à jour l'index pour afficher Exercice4Page
+                },
+              ),
+            ),
           ],
         );
       },

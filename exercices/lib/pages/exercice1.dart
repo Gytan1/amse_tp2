@@ -1,18 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../page_state.dart'; // Importez la classe PageState
 
 class Exercice1Page extends StatelessWidget {
-  const Exercice1Page({Key? key}) : super(key: key);
+  const Exercice1Page({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final pageState = Provider.of<PageState>(context, listen: false); // Accédez à l'état
+
     return LayoutBuilder(
       builder: (context, constraints) {
-        return Center(
-          child: Image.asset(
-            'assets/images/test.jpg',
-            width: constraints.maxWidth,    // Prend la largeur de l'écran
-            height: constraints.maxHeight,  // Prend la hauteur de l'écran
-            fit: BoxFit.contain,            // Garde les proportions de l'image
+        return Scaffold(
+          appBar: AppBar(
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () => pageState.setIndex(0), // Retour au menu
+            ),
+          ),
+          body: Center(
+            child: Image.asset(
+              'assets/images/test.jpg',
+              width: constraints.maxWidth,
+              height: constraints.maxHeight,
+              fit: BoxFit.contain,
+            ),
           ),
         );
       },

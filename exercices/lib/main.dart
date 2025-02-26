@@ -1,23 +1,26 @@
 import 'package:flutter/material.dart';
-import "homepage.dart";
+import 'package:provider/provider.dart';
+import 'homepage.dart'; // Importez votre fichier homepage.dart
+import 'page_state.dart'; // Importez la classe PageState
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => PageState(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'AMSE TP2',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'AMSE TP2'),
     );
   }
 }
-

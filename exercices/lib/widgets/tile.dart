@@ -12,10 +12,10 @@ class Tile {
       child: ClipRect(
         child: Container(
           child: Align(
-            alignment: this.alignment,
+            alignment: alignment,
             widthFactor: 0.3,
             heightFactor: 0.3,
-            child: Image.asset(this.imageURL),
+            child: Image.asset(imageURL),
           ),
         ),
       ),
@@ -23,10 +23,12 @@ class Tile {
   }
 }
 
-Tile tile = new Tile(
+Tile tile = Tile(
     imageURL: 'assets/images/test.jpg', alignment: Alignment(0, 0));
 
 class DisplayTileWidget extends StatelessWidget {
+  const DisplayTileWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,8 +43,8 @@ class DisplayTileWidget extends StatelessWidget {
             height: 150.0,
             child: Container(
                 margin: EdgeInsets.all(20.0),
-                child: this.createTileWidgetFrom(tile))),
-        Container(
+                child: createTileWidgetFrom(tile))),
+        SizedBox(
             height: 200,
             child: Image.asset('assets/images/test.jpg',
                 fit: BoxFit.cover))

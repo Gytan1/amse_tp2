@@ -1,57 +1,54 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'page_state.dart'; // Importez la classe PageState
 import 'pages/exercice1.dart';
 import 'pages/exercice2.dart';
 import 'pages/exercice4.dart';
+import 'pages/exercice5.dart';
+import 'pages/menu.dart';
 
-
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  var selectedIndex = 0;
-
-  @override
   Widget build(BuildContext context) {
+    final pageState = Provider.of<PageState>(context); // Accédez à l'état
+
     Widget page;
-    switch (selectedIndex) {
+    switch (pageState.selectedIndex) {
       case 0:
+        page = MenuPage();
+        break;
+      case 1:
         page = Exercice1Page();
         break;
-      case 1 : 
+      case 2:
         page = Exercice2Page();
         break;
-      case 2 : 
+      case 3:
         page = Exercice4Page();
         break;
-
+      case 4:
+        page = Exercice5Page();
+        break;
       default:
-        page = Exercice1Page();
+        page = MenuPage();
     }
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: Text(title),
       ),
-      body: page,  // Utilisation de la page Exercice1 pour afficher l'image
-      bottomNavigationBar: BottomNavigationBar(
-        items: const[
-          BottomNavigationBarItem(icon: Icon(Icons.sos), label: 'Exercice 1'),
-          BottomNavigationBarItem(icon: Icon(Icons.sos), label: 'Exercice 2'),
-          BottomNavigationBarItem(icon: Icon(Icons.sos), label: 'Exercice 4'),
-
-      ],
-      currentIndex: selectedIndex,
-      onTap: (index) {
-        setState(() {
-          selectedIndex = index;
-        });
-      }),
+      body: Row(
+        children: [
+          Expanded(
+            child: page,
+          ),
+        ],
+      ),
     );
   }
 }
