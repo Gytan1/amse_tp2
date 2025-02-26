@@ -11,7 +11,6 @@ class Exercie5bPage extends StatelessWidget {
 
   List<Tile> generateTiles() {
     List<Tile> tiles = [];
-    double factor = 1 / gridSize;
     double step = 2.0 / (gridSize - 1);
 
     for (int y = 0; y < gridSize; y++) {
@@ -20,7 +19,7 @@ class Exercie5bPage extends StatelessWidget {
         tiles.add(
           Tile(
             imageURL: imagePath,
-            alignment: Alignment(-1 + x * step, -1 + y * step),
+            alignment: Alignment(0 + x * step, 0 + y * step),
           ),
         );
       }

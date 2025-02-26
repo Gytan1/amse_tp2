@@ -45,7 +45,7 @@ class Exercice4Page extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  height: 400,
+                  height: 300,
                   child: Image.asset(
                     "assets/images/test.jpg",
                     fit: BoxFit.cover,
