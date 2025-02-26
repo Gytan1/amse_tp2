@@ -13,8 +13,8 @@ class Tile {
         child: Container(
           child: Align(
             alignment: alignment,
-            widthFactor: 0.3,
-            heightFactor: 0.3,
+            widthFactor: 0.5,
+            heightFactor: 0.5,
             child: Image.asset(imageURL),
           ),
         ),
@@ -24,7 +24,9 @@ class Tile {
 }
 
 Tile tile = Tile(
-    imageURL: 'assets/images/test.jpg', alignment: Alignment(0, 0));
+  imageURL: 'assets/images/test.jpg',
+  alignment: Alignment(0, 0),
+);
 
 class DisplayTileWidget extends StatelessWidget {
   const DisplayTileWidget({super.key});
@@ -37,18 +39,23 @@ class DisplayTileWidget extends StatelessWidget {
         centerTitle: true,
       ),
       body: Center(
-          child: Column(children: [
-        SizedBox(
-            width: 150.0,
-            height: 150.0,
-            child: Container(
+        child: Column(
+          children: [
+            SizedBox(
+              width: 150.0,
+              height: 150.0,
+              child: Container(
                 margin: EdgeInsets.all(20.0),
-                child: createTileWidgetFrom(tile))),
-        SizedBox(
-            height: 200,
-            child: Image.asset('assets/images/test.jpg',
-                fit: BoxFit.cover))
-      ])),
+                child: createTileWidgetFrom(tile),
+              ),
+            ),
+            SizedBox(
+              height: 200,
+              child: Image.asset('assets/images/test.jpg', fit: BoxFit.cover),
+            ),
+          ],
+        ),
+      ),
     );
   }
 
