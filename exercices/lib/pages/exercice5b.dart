@@ -7,29 +7,11 @@ class Exercie5bPage extends StatelessWidget {
   const Exercie5bPage({super.key});
 
   final int gridSize = 3;
-  final String imagePath = 'assets/images/test.jpg';
-
-  List<Tile> generateTiles() {
-    List<Tile> tiles = [];
-    double step = 2.0 / (gridSize - 1);
-
-    for (int y = 0; y < gridSize; y++) {
-      for (int x = 0; x < gridSize; x++) {
-        tiles.add(
-          Tile(
-            imageURL: imagePath,
-            alignment: Alignment(0 + x * step, 0 + y * step),
-          ),
-        );
-      }
-    }
-    return tiles;
-  }
 
   @override
   Widget build(BuildContext context) {
     final pageState = Provider.of<PageState>(context, listen: false);
-    List<Tile> tiles = generateTiles();
+  
 
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -45,11 +27,10 @@ class Exercie5bPage extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: GridView.count(
                 crossAxisCount: gridSize,
-                crossAxisSpacing: 2,
-                mainAxisSpacing: 2,
-                children: List.generate(gridSize * gridSize, (index) {
-                  return tiles[index].croppedImageTile();
-                }),
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                // Génération des widgets via la nouvelle méthode
+                children: Tile.tilesWidgetList('assets/images/meme.png', 3),
               ),
             ),
           ),

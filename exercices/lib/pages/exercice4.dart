@@ -21,7 +21,9 @@ class Exercice4Page extends StatelessWidget {
 
     Tile tile = Tile(
       imageURL: "assets/images/test.jpg",
-      alignment: Alignment.center,
+      xIndex: 1,
+      yIndex: 1,
+      gridSize: 1
     );
 
     return LayoutBuilder(
