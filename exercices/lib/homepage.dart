@@ -1,3 +1,4 @@
+import 'package:exercices/pages/exercice5c.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'page_state.dart'; // Importez la classe PageState
@@ -36,6 +37,9 @@ class MyHomePage extends StatelessWidget {
         break;
       case 5:
         page = Exercie5bPage();
+        break;
+      case 6:
+        page = Exercie5cPage();
         break;
       default:
         page = MenuPage();
