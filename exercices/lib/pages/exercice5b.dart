@@ -15,7 +15,6 @@ class Exercie5bPage extends StatelessWidget {
 
     for (int y = 0; y < gridSize; y++) {
       for (int x = 0; x < gridSize; x++) {
-        if (x == gridSize - 1 && y == gridSize - 1) continue; // Case vide
         tiles.add(
           Tile(
             imageURL: imagePath,
@@ -49,9 +48,6 @@ class Exercie5bPage extends StatelessWidget {
                 crossAxisSpacing: 2,
                 mainAxisSpacing: 2,
                 children: List.generate(gridSize * gridSize, (index) {
-                  if (index == tiles.length) {
-                    return Container(color: Colors.grey); // Case vide
-                  }
                   return tiles[index].croppedImageTile();
                 }),
               ),
