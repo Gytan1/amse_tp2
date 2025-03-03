@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../page_state.dart'; // Importez la classe PageState
+import '../page_state.dart';
 
 class Exercice1Page extends StatelessWidget {
   const Exercice1Page({super.key});

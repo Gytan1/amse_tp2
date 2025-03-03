@@ -7,6 +7,8 @@ import 'pages/exercice2.dart';
 import 'pages/exercice4.dart';
 import 'pages/exercice5.dart';
 import 'pages/exercice5b.dart';
+import 'pages/exercice6_base.dart';
+import 'pages/exercice6.dart';
 import 'pages/menu.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -41,6 +43,11 @@ class MyHomePage extends StatelessWidget {
       case 6:
         page = Exercie5cPage();
         break;
+      case 7:
+        page = PositionedTiles();
+        break;
+      case 8:
+        page = Exercice6Page();
       default:
         page = MenuPage();
     }
