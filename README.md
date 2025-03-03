@@ -8,7 +8,7 @@ De plus, nous codé cette application avec la version 3.30 de flutter donc pour 
 ```bash
 flutter --version
 ```
-Si cette version est différente de 3.30 n'hésitez pas à upgrade:
+Si cette version est différente de 3.30 n'hésitez pas à upgrade sous peine de ne pas pouvoir run l'application:
 ```bash
 flutter upgrade
 ```
