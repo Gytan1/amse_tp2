@@ -3,15 +3,28 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../page_state.dart';
 
+Widget createTileWidgetFrom(Tile tile) {
+  return InkWell(
+    child: tile.croppedImageTile(),
+    onTap: () {
+      print("tapped on tile");
+    },
+  );
+}
+
 class Exercice4Page extends StatelessWidget {
   const Exercice4Page({super.key});
 
   @override
   Widget build(BuildContext context) {
     final pageState = Provider.of<PageState>(context, listen: false);
-    
+
     Tile tile = Tile(
-        imageURL: "assets/images/test.jpg", alignment: Alignment.center);
+      imageURL: "assets/images/test.jpg",
+      xIndex: 1,
+      yIndex: 1,
+      gridSize: 1
+    );
 
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -23,7 +36,25 @@ class Exercice4Page extends StatelessWidget {
             ),
           ),
           body: Center(
-            child: tile.croppedImageTile()
+            child: Column(
+              children: [
+                SizedBox(
+                  width: 150.0,
+                  height: 150.0,
+                  child: Container(
+                    margin: EdgeInsets.all(20.0),
+                    child: createTileWidgetFrom(tile),
+                  ),
+                ),
+                Container(
+                  height: 300,
+                  child: Image.asset(
+                    "assets/images/test.jpg",
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       },

@@ -2,62 +2,66 @@ import 'package:flutter/material.dart';
 
 class Tile {
   String imageURL;
-  Alignment alignment;
+  int xIndex;
+  int yIndex;
+  int gridSize;
 
-  Tile({required this.imageURL, required this.alignment});
+  Tile({
+    required this.imageURL,
+    required this.xIndex,
+    required this.yIndex,
+    required this.gridSize,
+  });
 
+  /// Cette méthode retourne le widget affichant la portion découpée
+  /// de l'image correspondant à cette tile.
   Widget croppedImageTile() {
-    return FittedBox(
-      fit: BoxFit.fill,
-      child: ClipRect(
-        child: Container(
+    // Calcul de l'alignement pour positionner la portion de l'image.
+    // Les alignements vont de -1 (début) à 1 (fin).
+    double alignX = gridSize > 1 ? -1 + (2 * xIndex) / (gridSize - 1) : 0;
+    double alignY = gridSize > 1 ? -1 + (2 * yIndex) / (gridSize - 1) : 0;
+
+    return Container(
+      height: 50,
+      width: 50,
+      child: FittedBox(
+        fit: BoxFit.fill,
+        child: ClipRect(
           child: Align(
-            alignment: alignment,
-            widthFactor: 0.3,
-            heightFactor: 0.3,
+            alignment: Alignment(alignX, alignY),
+            widthFactor: 1 / gridSize, // Largeur de la portion
+            heightFactor: 1 / gridSize, // Hauteur de la portion
             child: Image.asset(imageURL),
           ),
         ),
       ),
     );
   }
-}
 
-Tile tile = Tile(
-    imageURL: 'assets/images/test.jpg', alignment: Alignment(0, 0));
-
-class DisplayTileWidget extends StatelessWidget {
-  const DisplayTileWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Display a Tile as a Cropped Image'),
-        centerTitle: true,
-      ),
-      body: Center(
-          child: Column(children: [
-        SizedBox(
-            width: 150.0,
-            height: 150.0,
-            child: Container(
-                margin: EdgeInsets.all(20.0),
-                child: createTileWidgetFrom(tile))),
-        SizedBox(
-            height: 200,
-            child: Image.asset('assets/images/test.jpg',
-                fit: BoxFit.cover))
-      ])),
-    );
+  /// Génère la liste des tiles en parcourant les index de 0 à gridSize - 1.
+  static List<Tile> generateTiles(String path, int gridSize) {
+    List<Tile> tiles = [];
+    for (int y = 0; y < gridSize; y++) {
+      for (int x = 0; x < gridSize; x++) {
+        tiles.add(Tile(
+          imageURL: path,
+          xIndex: x,
+          yIndex: y,
+          gridSize: gridSize,
+        ));
+      }
+    }
+    return tiles;
   }
 
-  Widget createTileWidgetFrom(Tile tile) {
-    return InkWell(
-      child: tile.croppedImageTile(),
-      onTap: () {
-        print("tapped on tile");
-      },
-    );
+  /// Convertit une liste de Tile en une liste de Widget.
+  static List<Widget> generateTileWidgets(List<Tile> tiles) {
+    return tiles.map((tile) => tile.croppedImageTile()).toList();
+  }
+
+  /// Méthode utilitaire qui génère directement la liste des widgets pour la grille.
+  static List<Widget> tilesWidgetList(String path, int gridSize) {
+    List<Tile> tiles = generateTiles(path, gridSize);
+    return generateTileWidgets(tiles);
   }
 }

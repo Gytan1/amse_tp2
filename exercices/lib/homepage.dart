@@ -5,6 +5,7 @@ import 'pages/exercice1.dart';
 import 'pages/exercice2.dart';
 import 'pages/exercice4.dart';
 import 'pages/exercice5.dart';
+import 'pages/exercice5b.dart';
 import 'pages/menu.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -33,6 +34,9 @@ class MyHomePage extends StatelessWidget {
       case 4:
         page = Exercice5Page();
         break;
+      case 5:
+        page = Exercie5bPage();
+        break;
       default:
         page = MenuPage();
     }
@@ -42,13 +46,7 @@ class MyHomePage extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(title),
       ),
-      body: Row(
-        children: [
-          Expanded(
-            child: page,
-          ),
-        ],
-      ),
+      body: Row(children: [Expanded(child: page)]),
     );
   }
 }

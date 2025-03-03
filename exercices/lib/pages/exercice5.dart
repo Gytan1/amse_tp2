@@ -19,23 +19,64 @@ class Exercice5Page extends StatelessWidget {
             ),
           ),
           body: Center(
-            child: GridView.count(
-              crossAxisCount: 3,
-              children: [
-                Container(),
-                Container(),
-                Container(),
-                Container(),
-                Container(),
-                Container(),
-                Container(),
-                Container(),
-                Container(),
-              ],
-            )
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: GridView.count(
+                crossAxisCount: 3,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                children: [
+                  Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(color: Colors.black),
+                  ),
+                  Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(color: Colors.black),
+                  ),
+                  Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(color: Colors.black),
+                  ),
+                  Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(color: Colors.black),
+                  ),
+                  Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(color: Colors.black),
+                  ),
+                  Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(color: Colors.black),
+                  ),
+                  Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(color: Colors.black),
+                  ),
+                  Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(color: Colors.black),
+                  ),
+                  Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(color: Colors.black),
+                  ),
+                ],
+              ),
+            ),
           ),
         );
-      }
+      },
     );
   }
 }

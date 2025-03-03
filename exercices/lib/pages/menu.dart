@@ -7,7 +7,10 @@ class MenuPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pageState = Provider.of<PageState>(context, listen: false); // Accédez à l'état
+    final pageState = Provider.of<PageState>(
+      context,
+      listen: false,
+    ); // Accédez à l'état
 
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -19,7 +22,9 @@ class MenuPage extends StatelessWidget {
                 trailing: const Icon(Icons.arrow_right_sharp),
                 title: const Text("Exercice 1"),
                 onTap: () {
-                  pageState.setIndex(1); // Met à jour l'index pour afficher Exercice1Page
+                  pageState.setIndex(
+                    1,
+                  ); // Met à jour l'index pour afficher Exercice1Page
                 },
               ),
             ),
@@ -28,7 +33,9 @@ class MenuPage extends StatelessWidget {
                 trailing: const Icon(Icons.arrow_right_sharp),
                 title: const Text("Exercice 2"),
                 onTap: () {
-                  pageState.setIndex(2); // Met à jour l'index pour afficher Exercice2Page
+                  pageState.setIndex(
+                    2,
+                  ); // Met à jour l'index pour afficher Exercice2Page
                 },
               ),
             ),
@@ -37,7 +44,9 @@ class MenuPage extends StatelessWidget {
                 trailing: const Icon(Icons.arrow_right_sharp),
                 title: const Text("Exercice 4"),
                 onTap: () {
-                  pageState.setIndex(3); // Met à jour l'index pour afficher Exercice4Page
+                  pageState.setIndex(
+                    3,
+                  ); // Met à jour l'index pour afficher Exercice4Page
                 },
               ),
             ),
@@ -46,7 +55,20 @@ class MenuPage extends StatelessWidget {
                 trailing: const Icon(Icons.arrow_right_sharp),
                 title: const Text("Exercice 5"),
                 onTap: () {
-                  pageState.setIndex(4); // Met à jour l'index pour afficher Exercice4Page
+                  pageState.setIndex(
+                    4,
+                  ); // Met à jour l'index pour afficher Exercice4Page
+                },
+              ),
+            ),
+            Card(
+              child: ListTile(
+                trailing: const Icon(Icons.arrow_right_sharp),
+                title: const Text("Exercice 5b"),
+                onTap: () {
+                  pageState.setIndex(
+                    5,
+                  ); // Met à jour l'index pour afficher Exercice4Page
                 },
               ),
             ),
