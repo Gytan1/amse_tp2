@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../page_state.dart';
-import '../widgets/TileGrid.dart';
+import 'package:exercices/page_state.dart';
+import 'package:exercices/widgets/TileGrid.dart';
 
 class Exercice6Page extends StatefulWidget {
   const Exercice6Page({super.key});
@@ -12,16 +12,6 @@ class Exercice6Page extends StatefulWidget {
 
 class _Exercice6PageState extends State<Exercice6Page> {
   int gridSize = 4;
-  TileGrid? tiles; 
-
-  @override
-  void initState() {
-    super.initState();
-    tiles = TileGrid(gridSize);  // Initialisation après la création de l'état
-
-    tiles!.generate(gridSize);
-
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,12 +29,7 @@ class _Exercice6PageState extends State<Exercice6Page> {
           body: Center(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: GridView.count(
-                crossAxisCount: gridSize,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-                children: tiles!.getWidgets(),
-              ),
+              child: TileGrid(gridSize: gridSize), // Utilisation du TileGrid StatefulWidget
             ),
           ),
         );

@@ -1,5 +1,8 @@
+import 'package:exercices/page_state.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
+
+import 'package:provider/provider.dart';
 
 // ==============
 // Models
@@ -57,10 +60,16 @@ class PositionedTilesState extends State<PositionedTiles> {
 
   @override
   Widget build(BuildContext context) {
+    final pageState = Provider.of<PageState>(context, listen: false);
+    
     return Scaffold(
       appBar: AppBar(
         title: Text('Moving Tiles'),
         centerTitle: true,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () => pageState.setIndex(0), // Retour au menu
+        ),
       ),
       body: Row(children: tiles),
       floatingActionButton: FloatingActionButton(

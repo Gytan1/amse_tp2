@@ -1,36 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'TileModel.dart';
 
 class TileWidget extends StatelessWidget {
-  final TileModel model;
+  TileModel model;
+  final Function(TileWidget) onTileTap;
 
-  TileWidget({super.key}) : model = TileModel();
+  TileWidget({super.key, required this.model, required this.onTileTap});
 
   @override
   Widget build(BuildContext context) {
+    model = Provider.of<TileModel>(context);
     return coloredBox();
   }
 
   Widget coloredBox() {
-  return Container(
-    decoration: BoxDecoration(
-      color: model.getColor(),
-      border: Border.all(
-        color: model.getBorderColor(), // Couleur de la bordure
-        width: 3, // Épaisseur de la bordure
-      ),
-    ),
-    child: Center(
-      child: Text(
-        '${model.index}',
-        style: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-          color: Colors.black,
+  return GestureDetector(
+      onTap: () {
+        onTileTap(this); // Appeler le callback au clic
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: model.getColor(),
+          border: Border.all(
+            color: model.getBorderColor(),
+            width: 3,
+          ),
+        ),
+        child: Center(
+          child: Text(
+            '${model.index}',
+            style: const TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+          ),
         ),
       ),
-    ),
-  );
-}
+    );
+  }
 
 }

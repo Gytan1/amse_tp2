@@ -3,7 +3,7 @@ import 'dart:math' as math;
 
 math.Random random = math.Random();
 
-class TileModel {
+class TileModel extends ChangeNotifier{
   Color color;
   Color borderColor;
   bool canMove;
@@ -21,13 +21,13 @@ class TileModel {
 
   Color getColor() {
     if(isEmpty){
-      color =  Color.fromARGB(1, 255, 255, 255);  // Tile blanche, pas de bordure
+      color =  Color.fromARGB(255, 255, 255, 255);  // Tile blanche, pas de bordure
     }
     else if(canMove){
-      color = Color.fromARGB(1, 90, 90, 90);      // Tile grise, bordure rouge
+      color = Color.fromARGB(255, 90, 90, 90);      // Tile grise, bordure rouge
     }
     else{
-      color = Color.fromARGB(1, 90, 90, 90);      // Tile grise, pas de bordure
+      color = Color.fromARGB(255, 90, 90, 90);      // Tile grise, pas de bordure
     }
     return color;
   }
@@ -37,7 +37,7 @@ class TileModel {
       borderColor =  Color.fromARGB(0, 255, 0, 0);  // Tile blanche, pas de bordure
     }
     else if(canMove){
-      borderColor =  Color.fromARGB(1, 255, 0, 0);  // Tile grise, bordure rouge
+      borderColor =  Color.fromARGB(255, 255, 0, 0);  // Tile grise, bordure rouge
     }
     else{
       borderColor =  Color.fromARGB(0, 255, 0, 0);  // Tile grise, pas de bordure
@@ -46,17 +46,8 @@ class TileModel {
   }
 
   void updateTile() {
-    if(isEmpty){
-      color =  Color.fromARGB(1, 255, 255, 255);  // Tile blanche, pas de bordure
-      borderColor =  Color.fromARGB(0, 255, 0, 0);
-    }
-    else if(canMove){
-      color = Color.fromARGB(1, 90, 90, 90);      // Tile grise, bordure rouge
-      borderColor =  Color.fromARGB(1, 255, 0, 0);
-    }
-    else{
-      color = Color.fromARGB(1, 90, 90, 90);      // Tile grise, pas de bordure
-      borderColor =  Color.fromARGB(0, 255, 0, 0);
-    }
+    color = getColor();
+    borderColor = getBorderColor();
+    notifyListeners();
   }
 }
