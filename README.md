@@ -12,3 +12,20 @@ Si cette version est différente de 3.30 n'hésitez pas à upgrade sous peine de
 ```bash
 flutter upgrade
 ```
+## Lancement de l'application
+Pour lancer l'application, vous devez ouvrir un terminal et lancer les commandes suivantes:
+
+### Cloner le repository github 
+```bash
+git clone https://github.com/Gytan1/amse_tp2.git
+```
+### Rentrer dans le dossier
+
+```bash
+cd amse_tp2
+cd exercices
+```
+### Lancer l'application
+```bash
+flutter run
+```
