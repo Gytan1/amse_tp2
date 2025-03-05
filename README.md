@@ -23,7 +23,16 @@ git clone https://github.com/Gytan1/amse_tp2.git
 
 ```bash
 cd amse_tp2
+```
+
+### Si vous voulez voir les exercices
+```bash
 cd exercices
+```
+
+### Si vous voulez lancer directement le jeu de taquin
+ ```bash
+cd taquin
 ```
 ### Lancer l'application
 ```bash
