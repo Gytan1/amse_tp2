@@ -105,6 +105,17 @@ class MenuPage extends StatelessWidget {
                 },
               ),
             ),
+            Card(
+              child: ListTile(
+                trailing: const Icon(Icons.arrow_right_sharp),
+                title: const Text("Exercice 7"),
+                onTap: () {
+                  pageState.setIndex(
+                    9,
+                  ); // Met à jour l'index pour afficher Exercice4Page
+                },
+              ),
+            ),
           ],
         );
       },

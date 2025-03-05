@@ -8,10 +8,10 @@ class TileGrid extends StatefulWidget {
   const TileGrid({Key? key, required this.gridSize}) : super(key: key);
 
   @override
-  _TileGridState createState() => _TileGridState();
+  TileGridState createState() => TileGridState();
 }
 
-class _TileGridState extends State<TileGrid> {
+class TileGridState extends State<TileGrid> {
   late List<TileWidget> tiles;
   late int size;
 
@@ -20,7 +20,29 @@ class _TileGridState extends State<TileGrid> {
     super.initState();
     size = widget.gridSize;
     tiles = [];
-    generate(size);
+  }
+
+  void preview(int size) {
+    tiles = [];
+    int index = 0;
+
+    for (int x = 0; x < size; x++) {
+      for (int y = 0; y < size; y++) {
+        TileWidget tile = TileWidget(
+          model: TileModel(),
+          onTileTap: (TileWidget tile) {
+            handleTileClick(tile);
+          },
+        );
+
+        tile.model.index = index;
+
+        tiles.add(tile);
+
+        index++;
+      }
+    }
+    update();
   }
 
   void generate(int size) {

@@ -9,6 +9,7 @@ import 'pages/exercice5.dart';
 import 'pages/exercice5b.dart';
 import 'pages/exercice6_base.dart';
 import 'pages/exercice6.dart';
+import 'pages/exercice7.dart';
 import 'pages/menu.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -48,6 +49,8 @@ class MyHomePage extends StatelessWidget {
         break;
       case 8:
         page = Exercice6Page();
+      case 9:
+        page = Exercice7Page();
       default:
         page = MenuPage();
     }
