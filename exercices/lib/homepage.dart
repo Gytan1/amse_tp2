@@ -1,3 +1,4 @@
+import 'package:exercices/pages/exercice5c.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'page_state.dart'; // Importez la classe PageState
@@ -6,6 +7,9 @@ import 'pages/exercice2.dart';
 import 'pages/exercice4.dart';
 import 'pages/exercice5.dart';
 import 'pages/exercice5b.dart';
+import 'pages/exercice6_base.dart';
+import 'pages/exercice6.dart';
+import 'pages/exercice7.dart';
 import 'pages/menu.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -37,6 +41,16 @@ class MyHomePage extends StatelessWidget {
       case 5:
         page = Exercie5bPage();
         break;
+      case 6:
+        page = Exercie5cPage();
+        break;
+      case 7:
+        page = PositionedTiles();
+        break;
+      case 8:
+        page = Exercice6Page();
+      case 9:
+        page = Exercice7Page();
       default:
         page = MenuPage();
     }

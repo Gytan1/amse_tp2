@@ -30,7 +30,7 @@ class Exercie5bPage extends StatelessWidget {
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 10,
                 // Génération des widgets via la nouvelle méthode
-                children: Tile.tilesWidgetList('assets/images/meme.png', 3),
+                children: Tile.tilesWidgetList('assets/images/meme.png', gridSize),
               ),
             ),
           ),
