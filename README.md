@@ -1,4 +1,6 @@
 # amse_tp2
+## Attention 
+Les exercices 6 et 7 ne s'afficheront pas à cause d'un problème de git qui nous a fait perdre les fichiers mais le jeu de taquin fonctionne
 ## Attention à la version de flutter !
 Nous avons codé l'application avec flutter en mode master, ne pas oublier de vérifier le mode de son flutter avant de lancer le code, pour cela il faut cette commande :
 ```bash
